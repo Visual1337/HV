@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Dbg|x64">
+      <Configuration>Dbg</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BED250B0-D2A1-44F7-93F2-007918352C5F}</ProjectGuid>
+    <TemplateGuid>{1bc93793-694f-48fe-9372-81e2b05556fd}</TemplateGuid>
+    <TargetFrameworkVersion>
+    </TargetFrameworkVersion>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration>Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">Win32</Platform>
+    <RootNamespace>GDI_Discord</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>2_hypervisor</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dbg|x64'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>ClangCL</PlatformToolset>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <DriverType>KMDF</DriverType>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
+    <SpectreMitigation>false</SpectreMitigation>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <Driver_SpectreMitigation>false</Driver_SpectreMitigation>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dbg|x64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <TargetExt>.dll</TargetExt>
+    <IncludePath>zydis;D:\FACE\Libs;$(windowssdkdir_10)include\$(targetplatformversion)\km;$(IncludePath)</IncludePath>
+    <LibraryPath>$(windowssdkdir_10)lib\$(targetplatformversion)\km\x64;$(LibraryPath)</LibraryPath>
+    <IntDir>$(SolutionDir)$(Platform)\_tmp2\</IntDir>
+    <TargetName>hypevisor_module</TargetName>
+    <OutDir>$(SolutionDir)$(Platform)\</OutDir>
+    <GenerateManifest>false</GenerateManifest>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dbg|x64'">
+    <ClCompile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <CreateHotpatchableImage>false</CreateHotpatchableImage>
+      <GuardEHContMetadata>
+      </GuardEHContMetadata>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <WarningLevel>Level2</WarningLevel>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <OmitFramePointers>true</OmitFramePointers>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <AdditionalOptions>/clang:-fno-asynchronous-unwind-tables /clang:-fno-unwind-tables /clang:-mno-mmx /clang:-mno-avx /clang:-mno-avx2 /clang:-fno-unroll-loops %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>DBG1;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BuildStlModules>false</BuildStlModules>
+    </ClCompile>
+    <Link>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+    </Link>
+    <Link>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <EntryPointSymbol>vmexit_handler_asm</EntryPointSymbol>
+      <CETCompat>false</CETCompat>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <SubSystem>Native</SubSystem>
+      <LargeAddressAware>true</LargeAddressAware>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AssemblyDebug>
+      </AssemblyDebug>
+      <AdditionalDependencies>ntoskrnl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <TargetMachine>MachineX64</TargetMachine>
+      <SectionAlignment>
+      </SectionAlignment>
+      <AdditionalOptions>/SECTION:.rctx,RWE /MAP /ignore:4099 %(AdditionalOptions)</AdditionalOptions>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>..\utils\export2header_pe64.exe "..\x64\hypevisor_module.dll" "..\headers\hv_exports.hpp" hv_mod
+
+..\utils\strip_export_pe64.exe "..\x64\hypevisor_module.dll" "..\x64\hypevisor_module.dll"
+sas.exe
+
+..\utils\write_header.exe "..\x64\hypevisor_module.dll" "..\headers\hv_module.cpp" hypevisor_raw_bytes 11 22 33</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <FilesToPackage Include="$(TargetPath)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="hypevisor_main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\headers\shared_data_hv.hpp" />
+    <ClInclude Include="amd\utils.hpp" />
+    <ClInclude Include="amd\vmexit_amd.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Dbg|x64'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="amd\npt.hpp" />
+    <ClInclude Include="amd\paging.hpp" />
+    <ClInclude Include="amd\svm.hpp" />
+    <ClInclude Include="globals.hpp" />
+    <ClInclude Include="hyper_pepex\cheat_main.hpp" />
+    <ClInclude Include="hyper_pepex\offsets.hpp" />
+    <ClInclude Include="intel\ept_tables_init.hpp" />
+    <ClInclude Include="intel\ept_mtf.hpp" />
+    <ClInclude Include="intel\hlat.hpp" />
+    <ClInclude Include="intel\mtrr.hpp" />
+    <ClInclude Include="intel\vmexit_intel.hpp" />
+    <ClInclude Include="intel\paging.hpp" />
+    <ClInclude Include="intel\utils.hpp" />
+    <ClInclude Include="intel\vmx.hpp" />
+    <ClInclude Include="lab\face_ultra_fast.hpp" />
+    <ClInclude Include="lab\hypercallback\dx11_defs.hpp" />
+    <ClInclude Include="lab\hypercallback\hypercallback_v2.hpp" />
+    <ClInclude Include="lab\hypercallback\save_guest_state.hpp" />
+    <ClInclude Include="lab\instr_emu.hpp" />
+    <ClInclude Include="lab\render\present1.hpp" />
+    <ClInclude Include="shared\core_data.hpp" />
+    <ClInclude Include="shared\cpuid_handler.hpp" />
+    <ClInclude Include="shared\guest_ctx.hpp" />
+    <ClInclude Include="shared\idt_hooks.hpp" />
+    <ClInclude Include="shared\paging.hpp" />
+    <ClInclude Include="utils\debug.hpp" />
+    <ClInclude Include="utils\fast_phys.hpp" />
+    <ClInclude Include="utils\memory_mgr.hpp" />
+    <ClInclude Include="windows\win_utils.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="zydis\Zydis\Zycore.lib" />
+    <Library Include="zydis\Zydis\Zydis.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>

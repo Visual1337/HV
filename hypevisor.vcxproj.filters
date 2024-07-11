@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="hypevisor_main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="globals.hpp" />
+    <ClInclude Include="..\headers\shared_data_hv.hpp">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="intel\ept_mtf.hpp">
+      <Filter>arch\intel</Filter>
+    </ClInclude>
+    <ClInclude Include="intel\vmexit_intel.hpp">
+      <Filter>arch\intel</Filter>
+    </ClInclude>
+    <ClInclude Include="intel\paging.hpp">
+      <Filter>arch\intel</Filter>
+    </ClInclude>
+    <ClInclude Include="intel\utils.hpp">
+      <Filter>arch\intel</Filter>
+    </ClInclude>
+    <ClInclude Include="intel\vmx.hpp">
+      <Filter>arch\intel</Filter>
+    </ClInclude>
+    <ClInclude Include="amd\svm.hpp">
+      <Filter>arch\amd</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\memory_mgr.hpp">
+      <Filter>helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="amd\vmexit_amd.hpp">
+      <Filter>arch\amd</Filter>
+    </ClInclude>
+    <ClInclude Include="amd\paging.hpp">
+      <Filter>arch\amd</Filter>
+    </ClInclude>
+    <ClInclude Include="amd\npt.hpp">
+      <Filter>arch\amd</Filter>
+    </ClInclude>
+    <ClInclude Include="shared\cpuid_handler.hpp">
+      <Filter>arch\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="shared\core_data.hpp">
+      <Filter>arch\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="shared\paging.hpp">
+      <Filter>arch\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="amd\utils.hpp">
+      <Filter>arch\amd</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\fast_phys.hpp">
+      <Filter>helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="hyper_pepex\cheat_main.hpp">
+      <Filter>lab\hyper_pepex</Filter>
+    </ClInclude>
+    <ClInclude Include="hyper_pepex\offsets.hpp">
+      <Filter>lab\hyper_pepex</Filter>
+    </ClInclude>
+    <ClInclude Include="windows\win_utils.hpp">
+      <Filter>windows</Filter>
+    </ClInclude>
+    <ClInclude Include="lab\hypercallback\save_guest_state.hpp">
+      <Filter>lab\HC</Filter>
+    </ClInclude>
+    <ClInclude Include="lab\hypercallback\hypercallback_v2.hpp">
+      <Filter>lab\HC</Filter>
+    </ClInclude>
+    <ClInclude Include="lab\face_ultra_fast.hpp">
+      <Filter>lab</Filter>
+    </ClInclude>
+    <ClInclude Include="lab\instr_emu.hpp">
+      <Filter>lab</Filter>
+    </ClInclude>
+    <ClInclude Include="shared\idt_hooks.hpp">
+      <Filter>lab</Filter>
+    </ClInclude>
+    <ClInclude Include="lab\hypercallback\dx11_defs.hpp">
+      <Filter>lab\HC</Filter>
+    </ClInclude>
+    <ClInclude Include="shared\guest_ctx.hpp">
+      <Filter>arch\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="intel\ept_tables_init.hpp">
+      <Filter>arch\intel</Filter>
+    </ClInclude>
+    <ClInclude Include="intel\mtrr.hpp">
+      <Filter>arch\intel</Filter>
+    </ClInclude>
+    <ClInclude Include="lab\render\present1.hpp">
+      <Filter>lab\HC</Filter>
+    </ClInclude>
+    <ClInclude Include="intel\hlat.hpp">
+      <Filter>arch\intel</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\debug.hpp">
+      <Filter>helpers\dbg</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="helpers">
+      <UniqueIdentifier>{7b57eb48-7b3d-4788-9525-89079278bf6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="arch">
+      <UniqueIdentifier>{f2f9e49b-3eab-48ea-8dcd-c0b91d98d56b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="arch\intel">
+      <UniqueIdentifier>{3a54a947-6e88-48f0-8e87-e1aac8e02e3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="arch\amd">
+      <UniqueIdentifier>{47cbdab7-607e-4ad1-af79-e0369f9645e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="arch\shared">
+      <UniqueIdentifier>{44b2bf7f-e4f8-4ee4-8694-fe7f9f776b82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shared">
+      <UniqueIdentifier>{48d7ed5a-8805-4cbc-b5f4-4c3d72b361eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="windows">
+      <UniqueIdentifier>{4374eb9b-c59c-4a71-9ec4-7d9eca795c14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lab">
+      <UniqueIdentifier>{96c9a049-680e-40a9-8b12-00629b43df64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lab\hyper_pepex">
+      <UniqueIdentifier>{3388df6e-bd63-47de-aedf-b4f43565210f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lab\HC">
+      <UniqueIdentifier>{14b561de-c56d-4f08-9215-07daa95b33d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="helpers\dbg">
+      <UniqueIdentifier>{c1531891-eab7-49d8-b69b-96ca3ce0392a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="zydis\Zydis\Zycore.lib" />
+    <Library Include="zydis\Zydis\Zydis.lib" />
+  </ItemGroup>
+</Project>
